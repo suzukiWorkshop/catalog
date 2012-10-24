@@ -9,9 +9,16 @@ end
 end
 
 もし /^以下の内容で商品を登録する:$/ do |table|
+  product_info = table.hashes[0]
+  fill_in 'product_name', with: product_info['商品名']
+  fill_in 'product_description', with: product_info['説明']
+  fill_in 'product_price', with: product_info['価格']
+  click_on 'Save'
+=begin
   table.hashes.each do |row|
     Product.create!(name: row['商品名'], description: row['説明'], price: row['価格'].to_i)
   end
+=end
 end
 
 ならば /^"(.*?)"の商品詳細ページが作成されていること$/ do |product_name|
