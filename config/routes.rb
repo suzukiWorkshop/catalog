@@ -1,6 +1,7 @@
 Catalog::Application.routes.draw do
   #get "catalog/index"
   root :to => 'catalog#index'
+  get "recommend", to: 'catalog#recommend', as: :recommend
   resources :shops
 
   resources :products

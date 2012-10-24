@@ -8,11 +8,13 @@
   = javascript_include_tag "application"
   = csrf_meta_tags
   %body
-    .navber.navber-fixed-top
-      .navber-inner
+    .navbar.navbar-fixed-top
+      .navbar-inner
         .container
           .brand
             = link_to 'Catalog', root_path
+          %ul.nav
+            %li= link_to 'Recommend', recommend_path
     .container
       .content
         = yield
