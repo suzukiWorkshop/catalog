@@ -1,5 +1,5 @@
 class Product < ActiveRecord::Base
-  attr_accessible :description, :name, :price, :image, :image_cache
+  attr_accessible :description, :name, :price, :image, :image_cache, :recommend
   mount_uploader :image, ProductImageUploader
 
   validates_presence_of :name, :description
@@ -14,4 +14,5 @@ class Product < ActiveRecord::Base
     end
   end
 
+  scope(:recommend,where(:recommend => true))
 end
